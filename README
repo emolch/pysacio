@@ -1,0 +1,68 @@
+Usage is like this:
+
+>>> import pysacio
+
+Read a SAC file:
+
+>>> sac = pysacio.SacFile('test.sac')
+
+Access header values (assignment is also fine):
+
+>>> sac.delta
+0.5
+
+Access the data: it is returned as a NumPy array:
+
+>>> sac.data[0]
+array([ 0.,  0.,  1.,  2.,  0.], dtype=float32)
+
+To simplify dealing with the reference time of the SAC file, I implemented this:
+
+>>> sac.get_ref_time()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+  File "/bonus/lib/python2.4/site-packages/pysacio.py", line 64, in get_ref_time
+    raise SacError('Not all header values for reference time are set.')
+pysacio.SacError: Not all header values for reference time are set.
+
+
+... aaah, OK, the time headers were not set in this file, so let's set them to
+the current system time, for the demo:
+
+>>> import time
+>>> sac.set_ref_time(time.time())
+>>> sac.get_ref_time()
+1250703611.993
+>>> sac.nzyear
+2009
+>>> sac.nzjday
+231
+>>> sac.nzhour
+17
+
+You can 'print' the SAC object:
+
+>>> print sac
+delta: 0.5
+b: 0.0
+e: 2.0
+nzyear: 2009
+nzjday: 231
+nzhour: 17
+nzmin: 40
+nzsec: 11
+nzmsec: 993
+nvhdr: 6
+npts: 5
+iftype: 1
+leven: 1
+lpspol: 0
+lovrok: 1
+lcalda: 1
+unused17: 0
+kevnm: -12345  -12345
+
+
+And to write it to file:
+
+>>> sac.write('newfile.sac')
