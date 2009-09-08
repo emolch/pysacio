@@ -21,6 +21,9 @@ Access the data: it is returned as a NumPy array:
 >>> sac.data[0]
 array([ 0.,  0.,  1.,  2.,  0.], dtype=float32)
 
+The data is in data[0] because in some sac files, e.g. with spectra stored,
+there are more than one data parts.
+
 To simplify dealing with the reference time of the SAC file, I implemented this:
 
 >>> sac.get_ref_time()
