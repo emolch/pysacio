@@ -1,5 +1,10 @@
 '''SAC IO library for Python'''
 
+# Copyright (c) 2009, Sebastian Heimann <sebastian.heimann@zmaw.de>
+#
+# This file is part of pysacio. For licensing information please see the file 
+# COPYING which is included with pysacio.
+
 import struct, sys, logging, math, time
 from calendar import timegm
 from time import gmtime
