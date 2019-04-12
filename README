@@ -3,6 +3,8 @@ PYSACIO - SAC IO library for Python
 Python module to read and write binary SAC (Seismic Analysis Code) files.
 -------------------------------------------------------------------------
 
+NOTE: This module is outdated. Please use the module pyrocko.io.sac from the Pyrocko library (https://pyrocko.org/).
+
 Usage is like this:
 
 >>> import pysacio
